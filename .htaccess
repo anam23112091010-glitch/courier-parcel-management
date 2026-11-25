@@ -1,0 +1,11 @@
+Options -Indexes
+DirectoryIndex index.php
+
+# Block direct access to includes and SQL
+<FilesMatch "\.(sql|md)$">
+    Require all denied
+</FilesMatch>
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^includes/ - [F,L]
+</IfModule>
